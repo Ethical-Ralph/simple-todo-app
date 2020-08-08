@@ -20,11 +20,12 @@ const options = {
 
 if (!!localStorage.getItem("token")) {
   setAuthToken(localStorage.token);
-  const { name, email } = JwtDecode(localStorage.getItem("token"));
+  const { fullName, email } = JwtDecode(localStorage.getItem("token"));
   const user = {
-    name,
+    fullName,
     email,
   };
+  console.log(JwtDecode(localStorage.getItem("token")));
   store.dispatch(loginSuccess({ user }));
 }
 

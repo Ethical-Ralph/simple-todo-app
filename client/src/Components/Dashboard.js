@@ -11,6 +11,7 @@ import { connect } from "react-redux";
 import cancel from "../assets/cancel.png";
 
 const Dashborad = ({
+  auth,
   getUserTodosAction,
   createTodoAction,
   todoList,
@@ -54,7 +55,7 @@ const Dashborad = ({
             <Card className="px-3">
               <Card.Body>
                 <Card.Title>
-                  <b>My Todos</b>
+                  Welcome, <b>{auth.fullName}</b>
                 </Card.Title>
                 <div className="add-items d-flex">
                   <input
@@ -123,6 +124,7 @@ const Dashborad = ({
 const mapStateToProps = (state) => ({
   api: state.api,
   todoList: state.todo.todos,
+  auth: state.auth,
 });
 
 const mapDispatchToProps = {
