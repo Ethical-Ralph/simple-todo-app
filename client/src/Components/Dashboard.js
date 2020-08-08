@@ -77,28 +77,34 @@ const Dashborad = ({
                   style={{ maxHeight: "300px" }}
                 >
                   <ul className="d-flex flex-column-reverse todo-list">
-                    {todoList.map((val, i) => {
-                      return (
-                        <li key={val._id}>
-                          <div className="form-check">
-                            <Link to={`/todo/${val._id}`}>
-                              <label className="form-check-label">
-                                <b style={{ fontSize: "1rem" }}>
-                                  {val.todoName}
-                                </b>
-                                <i className="input-helper"></i>
-                              </label>
-                            </Link>
-                          </div>
-                          <i
-                            onClick={() => removeTodo(val._id)}
-                            className="remove"
-                          >
-                            <img src={cancel} alt="remove" width="10rem" />
-                          </i>
-                        </li>
-                      );
-                    })}
+                    {todoList.length === 0 ? (
+                      <li>
+                        You don't have any todolist, you can create one above
+                      </li>
+                    ) : (
+                      todoList.map((val, i) => {
+                        return (
+                          <li key={val._id}>
+                            <div className="form-check">
+                              <Link to={`/todo/${val._id}`}>
+                                <label className="form-check-label">
+                                  <b style={{ fontSize: "1rem" }}>
+                                    {val.todoName}
+                                  </b>
+                                  <i className="input-helper"></i>
+                                </label>
+                              </Link>
+                            </div>
+                            <i
+                              onClick={() => removeTodo(val._id)}
+                              className="remove"
+                            >
+                              <img src={cancel} alt="remove" width="10rem" />
+                            </i>
+                          </li>
+                        );
+                      })
+                    )}
                   </ul>
                 </div>
               </Card.Body>
