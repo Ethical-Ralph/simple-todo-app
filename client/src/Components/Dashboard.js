@@ -27,6 +27,10 @@ const Dashborad = ({
     api.error && alert.error(api.error.message);
   }, [api.error, alert]);
 
+  useEffect(() => {
+    api.loading && alert.show("Working...");
+  }, [api.loading]);
+
   const removeTodo = (id) => {
     removeTodoAction(id);
   };
@@ -65,7 +69,7 @@ const Dashborad = ({
                     onClick={addTask}
                     className="add btn btn-primary font-weight-bold todo-list-add-btn"
                   >
-                    {api.loading ? "Adding..." : "Add"}
+                    Add
                   </button>
                 </div>
                 <div
