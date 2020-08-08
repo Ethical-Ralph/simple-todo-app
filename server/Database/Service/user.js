@@ -30,7 +30,7 @@ exports.userMethods = {
     const secret = config.jwtSecret;
     return jwt.sign(
       {
-        name: this.fullName,
+        fullName: this.fullName,
         email: this.email,
       },
       secret
