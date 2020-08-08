@@ -20,9 +20,13 @@
 ```
 git clone https://github.com/Ethical-Ralph/simple-todo-app.git
 cd simple-todo-app
+
 cd client
 npm install or yarn install
+
 cd server
+cp .env.example .env
+then add mongodb url and JWT secret in the .env file
 npm install or yarn install
 
 ```
