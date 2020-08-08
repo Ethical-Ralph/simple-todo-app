@@ -79,7 +79,11 @@ const Dashborad = ({
                   <ul className="d-flex flex-column-reverse todo-list">
                     {todoList.length === 0 ? (
                       <li>
-                        You don't have any todolist, you can create one above
+                        {!api.loading && (
+                          <b>
+                            You dont have any todolist, you can create one above
+                          </b>
+                        )}
                       </li>
                     ) : (
                       todoList.map((val, i) => {
