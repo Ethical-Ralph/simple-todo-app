@@ -34,6 +34,10 @@ const Todo = ({
   }, [getTodoAction, todoId]);
 
   useEffect(() => {
+    api.loading && alert.show(api.message, { timeout: 2000 });
+  }, [api.loading]);
+
+  useEffect(() => {
     api.error && alert.error(api.error.message);
   }, [api.error, alert]);
 

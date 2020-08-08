@@ -54,7 +54,7 @@ const unmarkTaskSuccess = (payload) => ({
 export const getUserTodosAction = (id) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Fetching your Todolists"));
       const res = await getMyTodos(id);
       dispatch(apiCallSuccess());
       dispatch(getTodosSuccess(res.data));
@@ -78,7 +78,7 @@ export const getTodoAction = (id) => {
 export const createTodoAction = (todoName) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Creating a new Todolist"));
       const res = await createTodo(todoName);
       dispatch(apiCallSuccess());
       dispatch(createTodoSuccess(res.data));
@@ -91,7 +91,7 @@ export const createTodoAction = (todoName) => {
 export const removeTodoAction = (id) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Removing TodoList"));
       await removeTodo(id);
       dispatch(apiCallSuccess());
       dispatch(removeTodoSuccess(id));
@@ -104,7 +104,7 @@ export const removeTodoAction = (id) => {
 export const addTaskAction = (todoId, taskName) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Adding Task"));
       const res = await addTaskToTodo(todoId, taskName);
       dispatch(apiCallSuccess());
       dispatch(createTaskSuccess(res.data));
@@ -117,7 +117,7 @@ export const addTaskAction = (todoId, taskName) => {
 export const removeTaskAction = (todoId, taskId) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Removing Task"));
       await removeTodoTask(todoId, taskId);
       dispatch(apiCallSuccess());
       dispatch(removeTaskSuccess(taskId));
@@ -130,7 +130,7 @@ export const removeTaskAction = (todoId, taskId) => {
 export const markAsCompleted = (todoId, taskId) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Marking"));
       const res = await markTaskAsCompleted(todoId, taskId);
       dispatch(apiCallSuccess());
       dispatch(markTaskSuccess(res.data));
@@ -143,7 +143,7 @@ export const markAsCompleted = (todoId, taskId) => {
 export const markAsUncompleted = (todoId, taskId) => {
   return async (dispatch) => {
     try {
-      dispatch(apiCallLoading());
+      dispatch(apiCallLoading("Unmarking"));
       const res = await markTaskAsUnCompleted(todoId, taskId);
       dispatch(apiCallSuccess());
       dispatch(unmarkTaskSuccess(res.data));

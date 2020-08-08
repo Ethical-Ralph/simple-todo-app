@@ -28,7 +28,7 @@ const Dashborad = ({
   }, [api.error, alert]);
 
   useEffect(() => {
-    api.loading && alert.show("Working...");
+    api.loading && alert.show(api.message, { timeout: 2000 });
   }, [api.loading]);
 
   const removeTodo = (id) => {

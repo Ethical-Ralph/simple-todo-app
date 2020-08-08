@@ -3,6 +3,7 @@ import * as apiActionTypes from "./actionTypes";
 const initialState = {
   loading: false,
   error: null,
+  message: "working....",
 };
 
 const apiReducer = (state = initialState, action) => {
@@ -11,6 +12,7 @@ const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: true,
+        message: action.payload,
       };
     case apiActionTypes.API_CALL_SUCCESS:
       return {
