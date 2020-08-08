@@ -65,7 +65,7 @@ const Dashborad = ({
                     onClick={addTask}
                     className="add btn btn-primary font-weight-bold todo-list-add-btn"
                   >
-                    Add
+                    {api.loading ? "Adding..." : "Add"}
                   </button>
                 </div>
                 <div
