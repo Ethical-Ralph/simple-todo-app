@@ -72,9 +72,10 @@ const Todo = ({
                 <input
                   type="text"
                   className="form-control todo-list-input"
-                  placeholder="What do you need to do today?"
+                  placeholder="Enter Todo Task"
                   value={taskName}
                   onChange={handleChange}
+                  onKeyPress={(e) => e.key === "Enter" && addTask(e)}
                 />
                 <button
                   onClick={addTask}

@@ -21,8 +21,8 @@ const Dashborad = ({
   const alert = useAlert();
   const [todoName, setTodoName] = useState("");
   useEffect(() => {
-    getUserTodosAction();
-  }, [getUserTodosAction]);
+    todoList.length === 0 && getUserTodosAction();
+  }, [getUserTodosAction, todoList.length]);
 
   useEffect(() => {
     api.error && alert.error(api.error.message);
@@ -36,7 +36,7 @@ const Dashborad = ({
     removeTodoAction(id);
   };
 
-  const addTask = (e) => {
+  const addTodo = (e) => {
     e.preventDefault();
     const data = String(todoName);
     createTodoAction(data);
@@ -65,9 +65,10 @@ const Dashborad = ({
                     className="form-control todo-list-input"
                     placeholder="Add a new Todo List"
                     onChange={handleChange}
+                    onKeyPress={(e) => e.key === "Enter" && addTodo(e)}
                   />
                   <button
-                    onClick={addTask}
+                    onClick={addTodo}
                     className="add btn btn-primary font-weight-bold todo-list-add-btn"
                   >
                     Add
