@@ -7,6 +7,8 @@
 ## Screenshots
 
 ![Thumbnail](./client/src/assets/screenshot.png)
+![Thumbnail](./client/src/assets/screenshot2.png)
+![Thumbnail](./client/src/assets/screenshot3.png)
 
 ## Stacks
 
