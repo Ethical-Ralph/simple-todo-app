@@ -35,7 +35,7 @@ const Todo = ({
 
   useEffect(() => {
     api.loading && alert.show(api.message, { timeout: 2000 });
-  }, [api.loading]);
+  }, [api.loading, api.message, alert]);
 
   useEffect(() => {
     api.error && alert.error(api.error.message);
