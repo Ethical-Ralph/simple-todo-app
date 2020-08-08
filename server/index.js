@@ -29,7 +29,7 @@ const PORT = process.env.PORT || 4000;
 const databaseUrl = isProd ? config.databaseUrl.prod : config.databaseUrl.dev;
 
 const startServer = () =>
-  app.listen(PORT, "0.0.0.0", () => {
+  app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`);
   });
 
