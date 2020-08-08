@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { logoutAction } from "../Redux/auth/action";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const NavigationBar = ({ auth, logoutAction }) => {
   const history = useHistory();
@@ -22,12 +22,8 @@ const NavigationBar = ({ auth, logoutAction }) => {
         <Nav className="ml-auto">
           {auth.isAuthenticated ? (
             <>
-              <Nav.Link>
-                <button className="myButton">
-                  <Link className="navlink" to="/todo">
-                    My TodoLists
-                  </Link>
-                </button>
+              <Nav.Link className="navlink" href="/todo">
+                <button className="myButton">My TodoLists</button>
               </Nav.Link>
               <Nav.Link>
                 <button className="myButton" onClick={handleLogout}>
@@ -37,19 +33,11 @@ const NavigationBar = ({ auth, logoutAction }) => {
             </>
           ) : (
             <>
-              <Nav.Link>
-                <button className="myButton">
-                  <Link className="navlink" to="/login">
-                    Login
-                  </Link>
-                </button>
+              <Nav.Link className="navlink" href="/login">
+                <button className="myButton">Login</button>
               </Nav.Link>
-              <Nav.Link>
-                <button className="myButton">
-                  <Link className="navlink" to="/signup">
-                    Signup
-                  </Link>
-                </button>
+              <Nav.Link className="navlink" href="/signup">
+                <button className="myButton">Signup</button>
               </Nav.Link>
             </>
           )}
